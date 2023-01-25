@@ -27,19 +27,19 @@ def brackets_match?(s)
       st_br.push(x)
     end
   end        
-return st_br.empty?
+return st_br.empty? 
 end
 
 def remove_and_append_vowels(s)
   vow = []
   not_vow = []
-  s.scan(/[AEIOUaeiou]/) do |x| 
+  s.scan(/[AEIOUaeiou]/) do |x| #check if vowels
     vow.push(x)
   end
-  s.scan(/[^AEIOUaeiou]/) do |x| 
+  s.scan(/[^AEIOUaeiou]/) do |x|  #check if not a vowel
     not_vow.push(x)
   end
-  vow_string = vow.join
+  vow_string = vow.join 
   not_vow_string = not_vow.join
   ans = not_vow_string + vow_string
   return ans
@@ -47,7 +47,13 @@ def remove_and_append_vowels(s)
 end
 
 def highest_frequency_word(s)
-  # ADD YOUR CODE HERE
+  test_string_array = test_string.split(" ") #split into array
+  freq_map = Hash.new{0} #create map with deafult freq as 0
+  test_string_array.each do |word| #iterate the array
+    freq_map[word] +=1 #calculate teh frequnce
+  end
+  ans= freq_map.key(freq_map.values.max) #gives the frequency of the most recent word with max occurances 
+  return ans  
 end
 
 # Part 3
